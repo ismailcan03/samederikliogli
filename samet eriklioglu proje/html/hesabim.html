@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERK Garage | Hesabım</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/hesabim.css">
+    <!-- Font Awesome için CDN bağlantısı -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ERK Garage</div>
+                <nav>
+                    <ul class="main-nav">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="ilanlar.html">İlanlar</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <a href="hesabim.html" class="btn btn-light active">
+                        <i class="fas fa-user-circle"></i> Samed Eriklioglu
+                    </a>
+                    <a href="#" class="btn btn-secondary">İlan Ver</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="dashboard-hero">
+        <div class="container">
+            <div class="dashboard-hero-content">
+                <div class="user-welcome">
+                    <div class="user-avatar">
+                        <span>AY</span>
+                        <div class="avatar-edit">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                    </div>
+                    <div class="user-info">
+                        <h1>Hoş Geldiniz, Samed Eriklioglu</h1>
+                        <p>Premium Üye <span class="badge-premium">PRO</span></p>
+                    </div>
+                </div>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-car stat-icon"></i>
+                        <div class="stat-info">
+                            <h3>3</h3>
+                            <p>Aktif İlan</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-heart stat-icon"></i>
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Favoriler</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-envelope stat-icon"></i>
+                        <div class="stat-info">
+                            <h3>5</h3>
+                            <p>Mesajlar</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-eye stat-icon"></i>
+                        <div class="stat-info">
+                            <h3>238</h3>
+                            <p>İlan Görüntüleme</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dashboard-content">
+        <div class="container">
+            <div class="dashboard-layout">
+                <div class="dashboard-sidebar">
+                    <ul class="dashboard-menu">
+                        <li class="active">
+                            <a href="#"><i class="fas fa-tachometer-alt"></i> Kontrol Paneli</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-list"></i> İlanlarım</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-heart"></i> Favorilerim</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-envelope"></i> Mesajlar <span class="badge">5</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-bell"></i> Bildirimler <span class="badge">3</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-file-invoice"></i> Faturalarım</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-cog"></i> Hesap Ayarları</a>
+                        </li>
+                        <li class="menu-separator"></li>
+                        <li>
+                            <a href="#" class="upgrade-account">
+                                <i class="fas fa-crown"></i> Premium'a Yükselt
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dashboard-main">
+                    <div class="welcome-card">
+                        <div class="welcome-content">
+                            <h2>Yenilikler & İpuçları</h2>
+                            <p>Premium üyeliğiniz 23 Haziran 2025 tarihinde sona erecek. Yeni özelliklerimizden faydalanmak ve ilanlarınızı öne çıkarmak için üyeliğinizi uzatabilirsiniz.</p>
+                            <a href="#" class="btn btn-secondary">Üyeliği Uzat</a>
+                        </div>
+                        <div class="welcome-image">
+                            <img src="/api/placeholder/250/150" alt="Premium">
+                        </div>
+                    </div>
+
+                    <div class="section-header">
+                        <h2>Aktif İlanlarım</h2>
+                        <a href="#" class="view-all">Tümünü Gör <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="user-listings">
+                        <div class="user-listing-card">
+                            <div class="listing-image">
+                                <img src="https://www.log.com.tr/wp-content/uploads/2020/10/mercedesctr3-660x371.jpg" alt="Mercedes">
+                                <div class="listing-badge featured">Öne Çıkan</div>
+                            </div>
+                            <div class="listing-content">
+                                <h3>Mercedes C180 AMG</h3>
+                                <div class="listing-price">1,250,000 ₺</div>
+                                <div class="listing-details">
+                                    <span><i class="fas fa-calendar-alt"></i> 2020</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 45,000 km</span>
+                                    <span><i class="fas fa-gas-pump"></i> Benzin</span>
+                                </div>
+                                <div class="listing-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-eye"></i> 124 görüntülenme
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-phone"></i> 8 arama
+                                    </div>
+                                </div>
+                                <div class="listing-actions">
+                                    <a href="#" class="btn btn-sm btn-outline">Düzenle</a>
+                                    <a href="#" class="btn btn-sm btn-primary">Görüntüle</a>
+                                    <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="user-listing-card">
+                            <div class="listing-image">
+                                <img src="https://i.ytimg.com/vi/ewqKgALu-WM/maxresdefault.jpg" alt="BMW">
+                                <div class="listing-badge">Aktif</div>
+                            </div>
+                            <div class="listing-content">
+                                <h3>BMW 320i M Sport</h3>
+                                <div class="listing-price">1,450,000 ₺</div>
+                                <div class="listing-details">
+                                    <span><i class="fas fa-calendar-alt"></i> 2021</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 32,000 km</span>
+                                    <span><i class="fas fa-gas-pump"></i> Benzin</span>
+                                </div>
+                                <div class="listing-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-eye"></i> 85 görüntülenme
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-phone"></i> 5 arama
+                                    </div>
+                                </div>
+                                <div class="listing-actions">
+                                    <a href="#" class="btn btn-sm btn-outline">Düzenle</a>
+                                    <a href="#" class="btn btn-sm btn-primary">Görüntüle</a>
+                                    <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="user-listing-card">
+                            <div class="listing-image">
+                                <img src="https://hips.hearstapps.com/hmg-prod/images/2022-audi-a4-mmp-1-1621027611.jpg" alt="Audi">
+                                <div class="listing-badge">Aktif</div>
+                            </div>
+                            <div class="listing-content">
+                                <h3>Audi A4 2.0 TDI</h3>
+                                <div class="listing-price">1,350,000 ₺</div>
+                                <div class="listing-details">
+                                    <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 18,500 km</span>
+                                    <span><i class="fas fa-gas-pump"></i> Dizel</span>
+                                </div>
+                                <div class="listing-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-eye"></i> 29 görüntülenme
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-phone"></i> 2 arama
+                                    </div>
+                                </div>
+                                <div class="listing-actions">
+                                    <a href="#" class="btn btn-sm btn-outline">Düzenle</a>
+                                    <a href="#" class="btn btn-sm btn-primary">Görüntüle</a>
+                                    <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-widgets">
+                        <div class="widget-row">
+                            <div class="widget messages-widget">
+                                <div class="widget-header">
+                                    <h3><i class="fas fa-envelope"></i> Son Mesajlar</h3>
+                                    <a href="#" class="widget-action">Tümünü Gör</a>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="message-item unread">
+                                        <div class="message-avatar">M</div>
+                                        <div class="message-content">
+                                            <div class="message-header">
+                                                <h4>Mehmet Kaya</h4>
+                                                <span class="message-date">Bugün, 14:25</span>
+                                            </div>
+                                            <p>Mercedes C180 AMG için fiyatta pazarlık payınız var mı? İlginiz için teşekkürler.</p>
+                                        </div>
+                                    </div>
+                                    <div class="message-item unread">
+                                        <div class="message-avatar">S</div>
+                                        <div class="message-content">
+                                            <div class="message-header">
+                                                <h4>Selma Öztürk</h4>
+                                                <span class="message-date">Bugün, 11:03</span>
+                                            </div>
+                                            <p>BMW 320i aracınız hala satılık mı? Detaylı fotoğraflarını paylaşabilir misiniz?</p>
+                                        </div>
+                                    </div>
+                                    <div class="message-item">
+                                        <div class="message-avatar">C</div>
+                                        <div class="message-content">
+                                            <div class="message-header">
+                                                <h4>Cemal Demir</h4>
+                                                <span class="message-date">11 Nisan, 18:42</span>
+                                            </div>
+                                            <p>Audi A4 aracı yarın gelip bakabilir miyim? İletişim bilgilerinizi paylaşırsanız sevinirim.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="widget notif-widget">
+                                <div class="widget-header">
+                                    <h3><i class="fas fa-bell"></i> Bildirimler</h3>
+                                    <a href="#" class="widget-action">Tümünü Gör</a>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="notification-item">
+                                        <div class="notification-icon blue">
+                                            <i class="fas fa-tag"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>Mercedes C180 AMG ilanınız öne çıkarıldı</p>
+                                            <span class="notification-time">2 saat önce</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-item">
+                                        <div class="notification-icon green">
+                                            <i class="fas fa-eye"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>BMW 320i ilanınız 50 kişi tarafından görüntülendi</p>
+                                            <span class="notification-time">10 saat önce</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-item">
+                                        <div class="notification-icon orange">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>Haftalık ilan performans raporu hazır</p>
+                                            <span class="notification-time">1 gün önce</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-header">
+                        <h2>Yakında Sona Erecek Aramalar</h2>
+                    </div>
+                    <div class="saved-searches">
+                        <div class="search-card">
+                            <div class="search-title">
+                                <h3>Mercedes C-Serisi (2020-2023)</h3>
+                                <div class="search-expires">3 gün kaldı</div>
+                            </div>
+                            <div class="search-params">
+                                <span><i class="fas fa-tag"></i> 1,000,000₺ - 1,500,000₺</span>
+                                <span><i class="fas fa-map-marker-alt"></i> İstanbul</span>
+                                <span><i class="fas fa-tachometer-alt"></i> Max 50,000 km</span>
+                            </div>
+                            <div class="search-actions">
+                                <a href="#" class="btn btn-sm btn-outline">Aramaları Görüntüle</a>
+                                <a href="#" class="btn btn-sm btn-secondary">Yenile</a>
+                            </div>
+                        </div>
+
+                        <div class="search-card">
+                            <div class="search-title">
+                                <h3>BMW 3 Serisi (2021+)</h3>
+                                <div class="search-expires">5 gün kaldı</div>
+                            </div>
+                            <div class="search-params">
+                                <span><i class="fas fa-tag"></i> 1,300,000₺ - 1,800,000₺</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Ankara, İstanbul</span>
+                                <span><i class="fas fa-tachometer-alt"></i> Max 40,000 km</span>
+                            </div>
+                            <div class="search-actions">
+                                <a href="#" class="btn btn-sm btn-outline">Aramaları Görüntüle</a>
+                                <a href="#" class="btn btn-sm btn-secondary">Yenile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">ERK Garage</div>
+                    <p>Türkiye'nin en büyük ve güvenilir araba ilan platformu. Hayalinizdeki arabayı bulmak veya arabanızı satmak için doğru adres.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Linkler</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="ilanlar.html">İlanlar</a></li>
+                        <li><a href="#">İlan Ver</a></li>
+                        <li><a href="hesabim.html">Hesabım</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kategoriler</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">SUV</a></li>
+                        <li><a href="#">Sedan</a></li>
+                        <li><a href="#">Hatchback</a></li>
+                        <li><a href="#">Elektrikli</a></li>
+                        <li><a href="#">Lüks Araçlar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Bağdat Caddesi No:123 Kadıköy, İstanbul</li>
+                        <li><i class="fas fa-phone"></i> +90 (212) 456 78 90</li>
+                        <li><i class="fas fa-envelope"></i> info@erkgarage.com</li>
+                        <li><i class="fas fa-clock"></i> Pazartesi - Cumartesi: 09:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ERK Garage. Tüm hakları saklıdır.</p>
+                <ul class="footer-legal">
+                    <li><a href="#">Kullanım Şartları</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                    <li><a href="#">Çerezler</a></li>
+                    <li><a href="#">KVKK</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

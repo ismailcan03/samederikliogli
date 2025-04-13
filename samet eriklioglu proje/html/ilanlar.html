@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERK Garage | Araba İlanları</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Font Awesome için CDN bağlantısı -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ERK Garage</div>
+                <nav>
+                    <ul class="main-nav">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="ilanlar.html">İlanlar</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <a href="#" class="btn btn-light">Giriş Yap</a>
+                    <a href="#" class="btn btn-secondary">İlan Ver</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header" style="background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('/api/placeholder/1600/400') center/cover no-repeat; padding: 3rem 0; color: white; text-align: center;">
+        <div class="container">
+            <h1>Araba İlanları</h1>
+            <p>En güncel ve en uygun araba ilanları OtomobilPazar'da!</p>
+        </div>
+    </section>
+
+    <section class="listings-section">
+        <div class="container">
+            <div class="listings-wrapper" style="display: flex; gap: 2rem; margin: 2rem 0;">
+                <!-- Filters Sidebar -->
+                <div class="filters-sidebar" style="flex: 0 0 300px; background-color: white; border-radius: 8px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); padding: 1.5rem; align-self: flex-start;">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary); font-size: 1.3rem;">Filtreler</h3>
+                    
+                    <form>
+                        <div class="filter-group" style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Marka</label>
+                            <select style="width: 100%; padding: 0.8rem; border-radius: 4px; border: 1px solid var(--border);">
+                                <option value="">Tüm Markalar</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="bmw">BMW</option>
+                                <option value="audi">Audi</option>
+                                <option value="toyota">Toyota</option>
+                                <option value="volvo">Volvo</option>
+                                <option value="porsche">Porsche</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group" style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Model</label>
+                            <select style="width: 100%; padding: 0.8rem; border-radius: 4px; border: 1px solid var(--border);">
+                                <option value="">Tüm Modeller</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group" style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Yıl</label>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <select style="width: 50%; padding: 0.8rem; border-radius: 4px; border: 1px solid var(--border);">
+                                    <option value="">Min</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                </select>
+                                <select style="width: 50%; padding: 0.8rem; border-radius: 4px; border: 1px solid var(--border);">
+                                    <option value="">Max</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group" style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Fiyat Aralığı</label>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <select style="width: 50%; padding: 0.8rem; border-radius: 4px; border: 1px solid var(--border);">
+                                    <option value="">Min</option>
+                                    <option value="500000">500.000 TL</option>
+                                    <option value="1000000">1.000.000 TL</option>
+                                    <option value="2000000">2.000.000 TL</option>
+                                    <option value="3000000">3.000.000 TL</option>
+                                </select>
+                                <select style="width: 50%; padding: 0.8rem; border-radius: 4px; border: 1px solid var(--border);">
+                                    <option value="">Max</option>
+                                    <option value="1000000">1.000.000 TL</option>
+                                    <option value="2000000">2.000.000 TL</option>
+                                    <option value="3000000">3.000.000 TL</option>
+                                    <option value="5000000">5.000.000 TL</option>
+                                    <option value="10000000">10.000.000 TL+</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group" style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Kilometre</label>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <select style="width: 50%; padding: 0.8rem; border-radius: 4px; border: 1px solid var(--border);">
+                                    <option value="">Min</option>
+                                    <option value="0">0 km</option>
+                                    <option value="10000">10.000 km</option>
+                                    <option value="50000">50.000 km</option>
+                                </select>
+                                <select style="width: 50%; padding: 0.8rem; border-radius: 4px; border: 1px solid var(--border);">
+                                    <option value="">Max</option>
+                                    <option value="50000">50.000 km</option>
+                                    <option value="100000">100.000 km</option>
+                                    <option value="150000">150.000 km</option>
+                                    <option value="200000">200.000 km+</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group" style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Yakıt Tipi</label>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="fuel_type" value="petrol">
+                                    <span>Benzin</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="fuel_type" value="diesel">
+                                    <span>Dizel</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="fuel_type" value="hybrid">
+                                    <span>Hibrit</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="fuel_type" value="electric">
+                                    <span>Elektrik</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="fuel_type" value="lpg">
+                                    <span>LPG</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group" style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Vites Tipi</label>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="transmission" value="automatic">
+                                    <span>Otomatik</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="transmission" value="manual">
+                                    <span>Manuel</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="transmission" value="semi-auto">
+                                    <span>Yarı Otomatik</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group" style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Araç Durumu</label>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="condition" value="new">
+                                    <span>Sıfır</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="condition" value="used">
+                                    <span>İkinci El</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Filtrele</button>
+                        <button type="reset" class="btn btn-outline" style="width: 100%; margin-top: 0.8rem;">Filtreleri Temizle</button>
+                    </form>
+                </div>
+                
+                <!-- Listings Content -->
+                <div class="listings-content" style="flex: 1;">
+                    <div class="listings-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <div class="results-count">
+                            <h3 style="font-size: 1.2rem; font-weight: 600;">428 ilan bulundu</h3>
+                        </div>
+                        <div class="sort-options">
+                            <select style="padding: 0.6rem; border-radius: 4px; border: 1px solid var(--border); font-size: 0.9rem;">
+                                <option value="newest">En Yeni İlanlar</option>
+                                <option value="price_asc">Fiyat (Artan)</option>
+                                <option value="price_desc">Fiyat (Azalan)</option>
+                                <option value="year_desc">Yıl (Yeniden Eskiye)</option>
+                                <option value="km_asc">Kilometre (Az)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="car-grid">
+                        <!-- Car Card 1 -->
+                        <div class="car-card">
+                            <div class="car-badge premium">Premium</div>
+                            <div class="car-image">
+                                <img src="https://octane.rent/wp-content/uploads/2023/02/mercedes-benz-s500-w223-1-600x400.webp" alt="Mercedes S500">
+                            </div>
+                            <div class="car-info">
+                                <div class="car-title">
+                                    <h3>Mercedes-Benz S500 AMG</h3>
+                                    <div class="car-price">4.250.000 TL</div>
+                                </div>
+                                <div class="car-details">
+                                    <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 5.000 km</span>
+                                    <span><i class="fas fa-gas-pump"></i> Benzin</span>
+                                    <span><i class="fas fa-cog"></i> Otomatik</span>
+                                </div>
+                                <div class="car-description">
+                                    Mercedes-Benz S500 AMG Line, Tam Donanım, Orjinal, Hatasız, İlk Sahibinden...
+                                </div>
+                                <div class="car-actions">
+                                    <a href="#" class="btn btn-outline">Detaylar</a>
+                                    <a href="#" class="btn btn-primary">İletişim</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Car Card 2 -->
+                        <div class="car-card">
+                            <div class="car-badge">Yeni</div>
+                            <div class="car-image">
+                                <img src="https://images.unsplash.com/photo-1520031441872-265e4ff70366?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="BMW X7">
+                            </div>
+                            <div class="car-info">
+                                <div class="car-title">
+                                    <h3>BMW X7 xDrive40d</h3>
+                                    <div class="car-price">5.650.000 TL</div>
+                                </div>
+                                <div class="car-details">
+                                    <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 25.800 km</span>
+                                    <span><i class="fas fa-gas-pump"></i> Dizel</span>
+                                    <span><i class="fas fa-cog"></i> Otomatik</span>
+                                </div>
+                                <div class="car-description">
+                                    BMW X7 xDrive40d M Sport, Sky Lounge, Executive Paket, Harman Kardon Ses Sistemi...
+                                </div>
+                                <div class="car-actions">
+                                    <a href="#" class="btn btn-outline">Detaylar</a>
+                                    <a href="#" class="btn btn-primary">İletişim</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Car Card 3 -->
+                        <div class="car-card">
+                            <div class="car-image">
+                                <img src="https://yolcu360.com/blog/wp-content/uploads/2023/10/Audi-e-tron-GT-2023.jpg" alt="Audi e-tron GT">
+                            </div>
+                            <div class="car-info">
+                                <div class="car-title">
+                                    <h3>Audi e-tron GT Quattro</h3>
+                                    <div class="car-price">6.750.000 TL</div>
+                                </div>
+                                <div class="car-details">
+                                    <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 12.500 km</span>
+                                    <span><i class="fas fa-charging-station"></i> Elektrik</span>
+                                    <span><i class="fas fa-cog"></i> Otomatik</span>
+                                </div>
+                                <div class="car-description">
+                                    Audi e-tron GT Quattro, Premium Plus Paket, Bang & Olufsen Ses Sistemi, Sahibinden...
+                                </div>
+                                <div class="car-actions">
+                                    <a href="#" class="btn btn-outline">Detaylar</a>
+                                    <a href="#" class="btn btn-primary">İletişim</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Car Card 4 -->
+                        <div class="car-card">
+                            <div class="car-image">
+                                <img src="https://www.ssmotors.com.tr/B2ELResim/AracResim2El/25435/26a38780-29f1-4bce-aa32-9a3b02ede04f.jpg" alt="Porsche Taycan">
+                            </div>
+                            <div class="car-info">
+                                <div class="car-title">
+                                    <h3>Porsche Taycan 4S</h3>
+                                    <div class="car-price">7.850.000 TL</div>
+                                </div>
+                                <div class="car-details">
+                                    <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 8.200 km</span>
+                                    <span><i class="fas fa-charging-station"></i> Elektrik</span>
+                                    <span><i class="fas fa-cog"></i> Otomatik</span>
+                                </div>
+                                <div class="car-description">
+                                    Porsche Taycan 4S, Performance Plus Paket, Tüm Bakımları Yetkili Serviste Yapılmış...
+                                </div>
+                                <div class="car-actions">
+                                    <a href="#" class="btn btn-outline">Detaylar</a>
+                                    <a href="#" class="btn btn-primary">İletişim</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Car Card 5 -->
+                        <div class="car-card">
+                            <div class="car-badge">Fırsat</div>
+                            <div class="car-image">
+                                <img src="https://arbstorage.mncdn.com/ilanfotograflari/2024/09/30/26592687/5ab1fccc-a874-42cd-9e51-8cd582c4ff25_image_for_silan_26592687_580x435.jpg" alt="Volvo XC90">
+                            </div>
+                            <div class="car-info">
+                                <div class="car-title">
+                                    <h3>Volvo XC90 B5 AWD</h3>
+                                    <div class="car-price">3.950.000 TL</div>
+                                </div>
+                                <div class="car-details">
+                                    <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 32.000 km</span>
+                                    <span><i class="fas fa-gas-pump"></i> Dizel</span>
+                                    <span><i class="fas fa-cog"></i> Otomatik</span>
+                                </div>
+                                <div class="car-description">
+                                    Volvo XC90 B5 AWD Inscription, Bowers & Wilkins Ses Sistemi, Panoramik Tavan...
+                                </div>
+                                <div class="car-actions">
+                                    <a href="#" class="btn btn-outline">Detaylar</a>
+                                    <a href="#" class="btn btn-primary">İletişim</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Car Card 6 -->
+                        <div class="car-card">
+                            <div class="car-image">
+                                <img src="https://www.exclusiveautomotivegroup.com/imagetag/3646/main/l/Used-2021-Land-Rover-Range-Rover-Sport-HSE-Dynamic-1732976704.jpg" alt="Land Rover Range Rover Sport">
+                            </div>
+                            <div class="car-info">
+                                <div class="car-title">
+                                    <h3>Range Rover Sport HSE</h3>
+                                    <div class="car-price">5.250.000 TL</div>
+                                </div>
+                                <div class="car-details">
+                                    <span><i class="fas fa-calendar-alt"></i> 2021</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 45.600 km</span>
+                                    <span><i class="fas fa-gas-pump"></i> Dizel</span>
+                                    <span><i class="fas fa-cog"></i> Otomatik</span>
+                                </div>
+                                <div class="car-description">
+                                    Land Rover Range Rover Sport HSE Dynamic, Tam Donanım, Meridian Ses Sistemi...
+                                </div>
+                                <div class="car-actions">
+                                    <a href="#" class="btn btn-outline">Detaylar</a>
+                                    <a href="#" class="btn btn-primary">İletişim</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination" style="display: flex; justify-content: center; margin-top: 3rem;">
+                        <ul style="display: flex; gap: 0.5rem;">
+                            <li>
+                                <a href="#" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; border: 1px solid var(--border); color: var(--gray);">
+                                    <i class="fas fa-chevron-left"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; background-color: var(--primary); color: white;">1</a>
+                            </li>
+                            <li>
+                                <a href="#" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; border: 1px solid var(--border); color: var(--dark);">2</a>
+                            </li>
+                            <li>
+                                <a href="#" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; border: 1px solid var(--border); color: var(--dark);">3</a>
+                            </li>
+                            <li>
+                                <a href="#" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; border: 1px solid var(--border); color: var(--dark);">4</a>
+                            </li>
+                            <li>
+                                <a href="#" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; border: 1px solid var(--border); color: var(--dark);">5</a>
+                            </li>
+                            <li>
+                                <span style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: var(--gray);">...</span>
+                            </li>
+                            <li>
+                                <a href="#" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; border: 1px solid var(--border); color: var(--dark);">43</a>
+                            </li>
+                            <li>
+                                <a href="#" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; border: 1px solid var(--border); color: var(--gray);">
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Arabanızı Hızlı ve Güvenli Satın</h2>
+                <p>Binlerce alıcıya ulaşın, profesyonel destek alın, ücretsiz değerleme hizmeti sunalım.</p>
+                <a href="#" class="btn btn-secondary btn-lg">Hemen İlan Verin</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">ERK Garage</div>
+                    <p>Türkiye'nin en büyük ve güvenilir araba ilan platformu. Hayalinizdeki arabayı bulmak veya arabanızı satmak için doğru adres.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Linkler</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="ilanlar.html">İlanlar</a></li>
+                        <li><a href="#">İlan Ver</a></li>
+                        <li><a href="hesabim.html">Hesabım</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kategoriler</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">SUV</a></li>
+                        <li><a href="#">Sedan</a></li>
+                        <li><a href="#">Hatchback</a></li>
+                        <li><a href="#">Elektrikli</a></li>
+                        <li><a href="#">Lüks Araçlar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Bağdat Caddesi No:123 Kadıköy, İstanbul</li>
+                        <li><i class="fas fa-phone"></i> +90 (212) 456 78 90</li>
+                        <li><i class="fas fa-envelope"></i> info@otomobilpazar.com</li>
+                        <li><i class="fas fa-clock"></i> Pazartesi - Cumartesi: 09:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ERK Garage. Tüm hakları saklıdır.</p>
+                <ul class="footer-legal">
+                    <li><a href="#">Kullanım Şartları</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                    <li><a href="#">Çerezler</a></li>
+                    <li><a href="#">KVKK</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

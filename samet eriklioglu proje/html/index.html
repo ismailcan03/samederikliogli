@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERK Garage | Lüks Araba İlanları</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Font Awesome için CDN bağlantısı -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ERK Garage</div>
+                <nav>
+                    <ul class="main-nav">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="ilanlar.html">İlanlar</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <a href="#" class="btn btn-light">Giriş Yap</a>
+                    <a href="#" class="btn btn-secondary">İlan Ver</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=800&q=80') center/cover no-repeat;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hayalinizdeki Arabayı Bulun</h1>
+                <p>Türkiye'nin en güvenilir ve kapsamlı araba ilan platformu</p>
+                <div class="search-box">
+                    <form>
+                        <div class="search-group">
+                            <select name="brand">
+                                <option value="">Marka Seçin</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="bmw">BMW</option>
+                                <option value="audi">Audi</option>
+                                <option value="toyota">Toyota</option>
+                                <option value="volvo">Volvo</option>
+                            </select>
+                            <select name="model">
+                                <option value="">Model Seçin</option>
+                            </select>
+                            <select name="year">
+                                <option value="">Yıl Seçin</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                            </select>
+                            <select name="price">
+                                <option value="">Fiyat Aralığı</option>
+                                <option value="0-500000">0 - 500,000 TL</option>
+                                <option value="500000-1000000">500,000 - 1,000,000 TL</option>
+                                <option value="1000000-2000000">1,000,000 - 2,000,000 TL</option>
+                                <option value="2000000+">2,000,000 TL+</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Ara</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">Öne Çıkan İlanlar</h2>
+            <div class="car-grid">
+                <div class="car-card">
+                    <div class="car-badge premium">Premium</div>
+                    <div class="car-image">
+                        <img src="https://octane.rent/wp-content/uploads/2023/02/mercedes-benz-s500-w223-1-600x400.webp" alt="Mercedes S500">
+                    </div>
+                    <div class="car-info">
+                        <div class="car-title">
+                            <h3>Mercedes-Benz S500 AMG</h3>
+                            <div class="car-price">4.250.000 TL</div>
+                        </div>
+                        <div class="car-details">
+                            <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                            <span><i class="fas fa-tachometer-alt"></i> 5.000 km</span>
+                            <span><i class="fas fa-gas-pump"></i> Benzin</span>
+                            <span><i class="fas fa-cog"></i> Otomatik</span>
+                        </div>
+                        <div class="car-description">
+                            Mercedes-Benz S500 AMG Line, Tam Donanım, Orjinal, Hatasız, İlk Sahibinden...
+                        </div>
+                        <div class="car-actions">
+                            <a href="#" class="btn btn-outline">Detaylar</a>
+                            <a href="#" class="btn btn-primary">İletişim</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-badge">Yeni</div>
+                    <div class="car-image">
+                        <img src="https://images.unsplash.com/photo-1520031441872-265e4ff70366?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="BMW X7">
+                    </div>
+                    <div class="car-info">
+                        <div class="car-title">
+                            <h3>BMW X7 xDrive40d</h3>
+                            <div class="car-price">5.650.000 TL</div>
+                        </div>
+                        <div class="car-details">
+                            <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                            <span><i class="fas fa-tachometer-alt"></i> 25.800 km</span>
+                            <span><i class="fas fa-gas-pump"></i> Dizel</span>
+                            <span><i class="fas fa-cog"></i> Otomatik</span>
+                        </div>
+                        <div class="car-description">
+                            BMW X7 xDrive40d M Sport, Sky Lounge, Executive Paket, Harman Kardon Ses Sistemi...
+                        </div>
+                        <div class="car-actions">
+                            <a href="#" class="btn btn-outline">Detaylar</a>
+                            <a href="#" class="btn btn-primary">İletişim</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://yolcu360.com/blog/wp-content/uploads/2023/10/Audi-e-tron-GT-2023.jpg" alt="Audi e-tron GT">
+                    </div>
+                    <div class="car-info">
+                        <div class="car-title">
+                            <h3>Audi e-tron GT Quattro</h3>
+                            <div class="car-price">6.750.000 TL</div>
+                        </div>
+                        <div class="car-details">
+                            <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                            <span><i class="fas fa-tachometer-alt"></i> 12.500 km</span>
+                            <span><i class="fas fa-charging-station"></i> Elektrik</span>
+                            <span><i class="fas fa-cog"></i> Otomatik</span>
+                        </div>
+                        <div class="car-description">
+                            Audi e-tron GT Quattro, Premium Plus Paket, Bang & Olufsen Ses Sistemi, Sahibinden...
+                        </div>
+                        <div class="car-actions">
+                            <a href="#" class="btn btn-outline">Detaylar</a>
+                            <a href="#" class="btn btn-primary">İletişim</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="#" class="btn btn-outline-primary">Tüm İlanları Görüntüle</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="brands">
+        <div class="container">
+            <h2 class="section-title">Popüler Markalar</h2>
+            <div class="brand-grid">
+                <a href="#" class="brand-item">
+                    <div class="brand-icon">B</div>
+                    <span>BMW</span>
+                </a>
+                <a href="#" class="brand-item">
+                    <div class="brand-icon">M</div>
+                    <span>Mercedes</span>
+                </a>
+                <a href="#" class="brand-item">
+                    <div class="brand-icon">A</div>
+                    <span>Audi</span>
+                </a>
+                <a href="#" class="brand-item">
+                    <div class="brand-icon">V</div>
+                    <span>Volvo</span>
+                </a>
+                <a href="#" class="brand-item">
+                    <div class="brand-icon">T</div>
+                    <span>Toyota</span>
+                </a>
+                <a href="#" class="brand-item">
+                    <div class="brand-icon">P</div>
+                    <span>Porsche</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Kategoriler</h2>
+            <div class="category-grid">
+                <a href="#" class="category-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfxRHpO4yHrptPK5Br4vkrDI8fsCYZwfvFQA&s" alt="SUV">
+                    <span>SUV</span>
+                </a>
+                <a href="#" class="category-item">
+                    <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" alt="Sedan">
+                    <span>Sedan</span>
+                </a>
+                <a href="#" class="category-item">
+                    <img src="https://images.unsplash.com/photo-1471289549423-04adaecfa1f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" alt="Hatchback">
+                    <span>Hatchback</span>
+                </a>
+                <a href="#" class="category-item">
+                    <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" alt="Elektrikli">
+                    <span>Elektrikli</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Arabanızı Hızlı ve Güvenli Satın</h2>
+                <p>Binlerce alıcıya ulaşın, profesyonel destek alın, ücretsiz değerleme hizmeti sunalım.</p>
+                <a href="#" class="btn btn-secondary btn-lg">Hemen İlan Verin</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <div class="container">
+            <h2 class="section-title">Neden OtomobilPazar?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3>Güvenli Alışveriş</h3>
+                    <p>Tüm ilanlar ve satıcılar titizlikle kontrol edilir, güvenli alışveriş garantisi sunarız.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Ücretsiz Ekspertiz</h3>
+                    <p>Premium üyelerimize özel ücretsiz ekspertiz hizmeti ile araçların gerçek değerini öğrenin.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Geniş Alıcı Ağı</h3>
+                    <p>Aylık 2 milyondan fazla ziyaretçi ile arabanızı hızlı ve değerinde satın.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>7/24 Destek</h3>
+                    <p>Uzman ekibimiz her aşamada size destek olmak için hazır bekliyor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Müşteri Yorumları</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Araç satışımı bir haftada tamamladım. Çok profesyonel bir ekip, teşekkürler OtomobilPazar!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Murat Yılmaz</h4>
+                            <span>İstanbul</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Hayalimdeki arabayı çok uygun bir fiyata buldum. İşlemler çok hızlı ve güvenli gerçekleşti."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Ayşe Demir</h4>
+                            <span>Ankara</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Ekspertiz hizmeti sayesinde aracın gerçek değerini öğrendim ve kârlı bir satış gerçekleştirdim."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div class="author-info">
+                            <h4>Can Özkan</h4>
+                            <span>İzmir</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog">
+        <div class="container">
+            <h2 class="section-title">Otomobil Dünyasından Haberler</h2>
+            <div class="blog-grid">
+                <div class="blog-item">
+                    <div class="blog-image">
+                        <img src="https://img.gercekgundem.com/rcman/Cw820h461q95gm/storage/files/images/2024/11/27/yeni-proje-20-0f1d.jpg" alt="Elektrik Araçlar">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">12 Nisan 2025</div>
+                        <h3>Elektrikli Araçlarda Yeni Dönem</h3>
+                        <p>2025'in en yeni elektrikli araç modelleri ve teknolojik yenilikleri...</p>
+                        <a href="#" class="read-more">Devamını Oku</a>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Otomotiv Sektörü">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">10 Nisan 2025</div>
+                        <h3>Otomotiv Sektöründe Son Gelişmeler</h3>
+                        <p>Türkiye otomotiv pazarındaki son veriler ve değişen trendler...</p>
+                        <a href="#" class="read-more">Devamını Oku</a>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="Bakım İpuçları">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">8 Nisan 2025</div>
+                        <h3>Aracınızın Ömrünü Uzatacak 10 Bakım İpucu</h3>
+                        <p>Uzmanından araç bakımı ve uzun ömürlü kullanım için öneriler...</p>
+                        <a href="#" class="read-more">Devamını Oku</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">ERK Garage</div>
+                    <p>Türkiye'nin en büyük ve güvenilir araba ilan platformu. Hayalinizdeki arabayı bulmak veya arabanızı satmak için doğru adres.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Linkler</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="ilanlar.html">İlanlar</a></li>
+                        <li><a href="#">İlan Ver</a></li>
+                        <li><a href="hesabim.html">Hesabım</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kategoriler</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">SUV</a></li>
+                        <li><a href="#">Sedan</a></li>
+                        <li><a href="#">Hatchback</a></li>
+                        <li><a href="#">Elektrikli</a></li>
+                        <li><a href="#">Lüks Araçlar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Bağdat Caddesi No:123 Kadıköy, İstanbul</li>
+                        <li><i class="fas fa-phone"></i> +90 (212) 456 78 90</li>
+                        <li><i class="fas fa-envelope"></i> info@otomobilpazar.com</li>
+                        <li><i class="fas fa-clock"></i> Pazartesi - Cumartesi: 09:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ERK Garage. Tüm hakları saklıdır.</p>
+                <ul class="footer-legal">
+                    <li><a href="#">Kullanım Şartları</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                    <li><a href="#">Çerezler</a></li>
+                    <li><a href="#">KVKK</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

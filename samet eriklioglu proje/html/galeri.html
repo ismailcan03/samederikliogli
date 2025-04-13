@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERK Garage | Galeri</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Font Awesome için CDN bağlantısı -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Gallery specific styles */
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1.2rem;
+            background-color: var(--lightgray);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 1.5rem;
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gallery-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-info p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 4px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+        }
+        
+        .lightbox-nav button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+        
+        .lightbox-nav button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .lightbox-caption {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+        }
+        
+        /* Gallery details section */
+        .gallery-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .gallery-category {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .gallery-category-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .gallery-category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-category:hover .gallery-category-image img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-category-content {
+            padding: 1.5rem;
+        }
+        
+        .gallery-category-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .gallery-category-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        /* Media queries */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .lightbox-content {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ERK Garage</div>
+                <nav>
+                    <ul class="main-nav">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="ilanlar.html">İlanlar</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <a href="#" class="btn btn-light">Giriş Yap</a>
+                    <a href="#" class="btn btn-secondary">İlan Ver</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=800&q=80') center/cover no-repeat;">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Araç Galerimiz</h1>
+                <p>En prestijli ve etkileyici otomobillerin fotoğraflarını keşfedin</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">Popüler Araçlar</h2>
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">Hepsi</button>
+                <button class="filter-btn" data-filter="luxury">Lüks</button>
+                <button class="filter-btn" data-filter="suv">SUV</button>
+                <button class="filter-btn" data-filter="electric">Elektrikli</button>
+                <button class="filter-btn" data-filter="sport">Spor</button>
+            </div>
+            <div class="gallery-grid">
+                <!-- Lüks Araçlar -->
+                <div class="gallery-item luxury" data-category="luxury">
+                    <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Mercedes S-Class">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Mercedes-Benz S-Class</h3>
+                            <p>2023 Model | Lüks</p>
+                            <a href="#" class="btn btn-light btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item luxury" data-category="luxury">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Rolls Royce">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Rolls Royce Ghost</h3>
+                            <p>2022 Model | Lüks</p>
+                            <a href="#" class="btn btn-light btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item luxury" data-category="luxury">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="BMW 7 Series">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>BMW 7 Series</h3>
+                            <p>2023 Model | Lüks</p>
+                            <a href="#" class="btn btn-light btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SUV'lar -->
+                <div class="gallery-item suv" data-category="suv">
+                    <img src="https://media.cdn-jaguarlandrover.com/api/v2/images/102251/w/1600/h/650.jpg" alt="Range Rover">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Range Rover Sport</h3>
+                            <p>2023 Model | SUV</p>
+                            <a href="#" class="btn btn-light btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item suv" data-category="suv">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="BMW X5">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>BMW X5</h3>
+                            <p>2022 Model | SUV</p>
+                            <a href="#" class="btn btn-light btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item suv" data-category="suv">
+                    <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Audi Q8">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Audi Q8</h3>
+                            <p>2023 Model | SUV</p>
+                            <a href="#" class="btn btn-light btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Elektrikli Araçlar -->
+                <div class="gallery-item electric" data-category="electric">
+                    <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Tesla Model S">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Tesla Model S</h3>
+                            <p>2023 Model | Elektrikli</p>
+                            <a href="#" class="btn btn-light btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item electric" data-category="electric">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEHlY5LTYlhCikVRgTmHxfMbBE0G426R6QxQ&s" alt="Porsche Taycan">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Porsche Taycan</h3>
+                            <p>2023 Model | Elektrikli</p>
+                            <a href="#" class="btn btn-light btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item electric" data-category="electric">
+                    <img src="https://yolcu360.com/blog/wp-content/uploads/2023/10/Audi-e-tron-GT-2023.jpg" alt="Audi e-tron">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Audi e-tron GT</h3>
+                            <p>2023 Model | Elektrikli</p>
+                            <a href="#" class="btn btn-light btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Spor Araçlar -->
+                <div class="gallery-item sport" data-category="sport">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Lamborghini Huracan">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Lamborghini Huracan</h3>
+                            <p>2022 Model | Spor</p>
+                            <a href="#" class="btn btn-light btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item sport" data-category="sport">
+                    <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Ferrari 488">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Ferrari 488</h3>
+                            <p>2021 Model | Spor</p>
+                            <a href="#" class="btn btn-light btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item sport" data-category="sport">
+                    <img src="https://images.unsplash.com/photo-1554744512-d6c603f27c54?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Porsche 911">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Porsche 911</h3>
+                            <p>2023 Model | Spor</p>
+                            <a href="#" class="btn btn-light btn-sm">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="gallery-details">
+        <div class="container">
+            <h2 class="section-title">Araç Kategorileri</h2>
+            <div class="gallery-details-grid">
+                <div class="gallery-category">
+                    <div class="gallery-category-image">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Lüks Araçlar">
+                    </div>
+                    <div class="gallery-category-content">
+                        <h3>Lüks Araçlar</h3>
+                        <p>En prestijli ve konforlu lüks araçlar. Mercedes, BMW, Audi ve daha fazlası...</p>
+                        <a href="#" class="btn btn-outline">Tümünü Gör</a>
+                    </div>
+                </div>
+                <div class="gallery-category">
+                    <div class="gallery-category-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfxRHpO4yHrptPK5Br4vkrDI8fsCYZwfvFQA&s" alt="SUV'lar">
+                    </div>
+                    <div class="gallery-category-content">
+                        <h3>SUV'lar</h3>
+                        <p>Hem şehirde hem arazide kullanılabilen güçlü ve konforlu SUV modelleri...</p>
+                        <a href="#" class="btn btn-outline">Tümünü Gör</a>
+                    </div>
+                </div>
+                <div class="gallery-category">
+                    <div class="gallery-category-image">
+                        <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Elektrikli Araçlar">
+                    </div>
+                    <div class="gallery-category-content">
+                        <h3>Elektrikli Araçlar</h3>
+                        <p>Çevre dostu, yüksek teknolojili elektrikli otomobiller ve hibrit modeller...</p>
+                        <a href="#" class="btn btn-outline">Tümünü Gör</a>
+                    </div>
+                </div>
+                <div class="gallery-category">
+                    <div class="gallery-category-image">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Spor Arabalar">
+                    </div>
+                    <div class="gallery-category-content">
+                        <h3>Spor Arabalar</h3>
+                        <p>Yüksek performanslı, göz alıcı tasarımlı spor otomobiller ve süper araçlar...</p>
+                        <a href="#" class="btn btn-outline">Tümünü Gör</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Otomobil Meraklıları Kulübümüze Katılın</h2>
+                <p>Özel etkinlikler, lansman davetiyeleri ve özel fırsatlar için hemen kayıt olun.</p>
+                <a href="#" class="btn btn-secondary btn-lg">Kayıt Ol</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close"><i class="fas fa-times"></i></span>
+            <img src="" alt="Gallery Image">
+            <div class="lightbox-nav">
+                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">ERK Garage</div>
+                    <p>Türkiye'nin en büyük ve güvenilir araba ilan platformu. Hayalinizdeki arabayı bulmak veya arabanızı satmak için doğru adres.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Linkler</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="ilanlar.html">İlanlar</a></li>
+                        <li><a href="#">İlan Ver</a></li>
+                        <li><a href="hesabim.html">Hesabım</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kategoriler</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">SUV</a></li>
+                        <li><a href="#">Sedan</a></li>
+                        <li><a href="#">Hatchback</a></li>
+                        <li><a href="#">Elektrikli</a></li>
+                        <li><a href="#">Lüks Araçlar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Bağdat Caddesi No:123 Kadıköy, İstanbul</li>
+                        <li><i class="fas fa-phone"></i> +90 (212) 456 78 90</li>
+                        <li><i class="fas fa-envelope"></i> info@otomobilpazar.com</li>
+                        <li><i class="fas fa-clock"></i> Pazartesi - Cumartesi: 09:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ERK Garage. Tüm hakları saklıdır.</p>
+                <ul class="footer-legal">
+                    <li><a href="#">Kullanım Şartları</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                    <li><a href="#">Çerezler</a></li>
+                    <li><a href="#">KVKK</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Gallery Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Lightbox functionality
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = lightbox.querySelector('img');
+            const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+            const prevBtn = lightbox.querySelector('.prev-btn');
+            const nextBtn = lightbox.querySelector('.next-btn');
+            let currentIndex = 0;
+            let visibleItems = [];
+            
+            // Open lightbox when clicking on gallery item
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    // Get only visible items for navigation
+                    visibleItems = Array.from(galleryItems).filter(
+                        i => i.style.display !== 'none'
+                    );
+                    
+                    // Find the index of this item in visible items
+                    currentIndex = visibleItems.indexOf(this);
+                    
+                    const imgSrc = this.querySelector('img').src;
+                    const title = this.querySelector('h3').textContent;
+                    const desc = this.querySelector('p').textContent;
+                    
+                    lightboxImg.src = imgSrc;
+                    lightboxCaption.textContent = `${title} - ${desc}`;
+                    lightbox.classList.add('active');
+                    
+                    // Disable scrolling on body
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close lightbox
+            closeBtn.addEventListener('click', function() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Click outside to close
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Previous button
+            prevBtn.addEventListener('click', function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = visibleItems.length - 1;
+                }
+                
+                const item = visibleItems[currentIndex];
+                const imgSrc = item.querySelector('img').src;
+                const title = item.querySelector('h3').textContent;
+                const desc = item.querySelector('p').textContent;
+                
+                lightboxImg.src = imgSrc;
+                lightboxCaption.textContent = `${title} - ${desc}`;
+            });
+            
+            // Next button
+            nextBtn.addEventListener('click', function() {
+                if (currentIndex < visibleItems.length - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                
+                const item = visibleItems[currentIndex];
+                const imgSrc = item.querySelector('img').src;
+                const title = item.querySelector('h3').textContent;
+                const desc = item.querySelector('p').textContent;
+                
+                lightboxImg.src = imgSrc;
+                lightboxCaption.textContent = `${title} - ${desc}`;
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                } else if (e.key === 'ArrowLeft') {
+                    prevBtn.click();
+                } else if (e.key === 'ArrowRight') {
+                    nextBtn.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

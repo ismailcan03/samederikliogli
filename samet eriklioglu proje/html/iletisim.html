@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | ERK Garage</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/iletisim.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ERK Garage</div>
+                <nav>
+                    <ul class="main-nav">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="ilanlar.html">İlanlar</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="iletisim.html" class="active">İletişim</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <a href="#" class="btn btn-light">Giriş Yap</a>
+                    <a href="#" class="btn btn-secondary">İlan Ver</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header" style="background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=400&q=80') center/cover no-repeat;">
+        <div class="container">
+            <h1>İletişim</h1>
+            <p>Sorularınız ve görüşleriniz için bizimle iletişime geçin</p>
+        </div>
+    </section>
+
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-info-grid">
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Adres</h3>
+                    <p>Bağdat Caddesi No:123<br>Kadıköy, İstanbul</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Telefon</h3>
+                    <p>+90 (212) 456 78 90<br>+90 (533) 456 78 90</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>E-posta</h3>
+                    <p>info@erkgarage.com<br>satis@erkgarage.com</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Çalışma Saatleri</h3>
+                    <p>Pazartesi - Cumartesi: 09:00 - 18:00<br>Pazar: Kapalı</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-form-container">
+                    <h2 class="section-title">Bize Ulaşın</h2>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Adınız Soyadınız</label>
+                            <input type="text" id="name" name="name" placeholder="Adınızı ve soyadınızı giriniz" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">E-posta Adresiniz</label>
+                                <input type="email" id="email" name="email" placeholder="E-posta adresinizi giriniz" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon Numaranız</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Telefon numaranızı giriniz">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Konu</label>
+                            <select id="subject" name="subject">
+                                <option value="">Konu Seçiniz</option>
+                                <option value="sipariş">Satış Hakkında</option>
+                                <option value="teknik">Teknik Destek</option>
+                                <option value="öneri">Öneri/Şikayet</option>
+                                <option value="diğer">Diğer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesajınız</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Mesajınızı giriniz" required></textarea>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">Kişisel verilerimin işlenmesini kabul ediyorum.</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Gönder</button>
+                    </form>
+                </div>
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24085.99538006641!2d29.04549716885371!3d40.97160467652553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac790b17d1907%3A0xd2d24ea3f5e5c85!2zS2FkxLFrw7Z5LCDEsHN0YW5idWw!5e0!3m2!1str!2str!4v1638014459524!5m2!1str!2str" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Sık Sorulan Sorular</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Aracımı satmak için ne yapmalıyım?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aracınızı satmak için websitemizdeki "İlan Ver" butonuna tıklayarak üyelik oluşturabilir ve ardından ilan verme formunu doldurarak aracınızı satışa çıkarabilirsiniz. Detaylı bilgi için bize telefonla da ulaşabilirsiniz.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Ekspertiz hizmetiniz var mı?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Evet, anlaşmalı olduğumuz ekspertiz merkezlerinde indirimli olarak araç kontrolü yaptırabilirsiniz. Premium üyelerimiz için bu hizmet ücretsizdir. Ayrıca talep edilmesi durumunda ekspertiz raporlarını dijital olarak da sunabiliyoruz.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Araç kredisi için yardımcı oluyor musunuz?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Evet, anlaşmalı bankalarımız aracılığıyla araç kredisi başvurusu yapmanıza yardımcı oluyoruz. Ofisimize gelerek ya da telefonla bize ulaşarak kredi seçenekleri hakkında bilgi alabilirsiniz.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>İlan yayınlamak ücretli mi?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Standart üyelerimiz için aylık 1 adet ücretsiz ilan hakkı bulunmaktadır. Premium üyelerimiz ise sınırsız ilan verebilir ve ilanları öne çıkarma gibi ek avantajlardan yararlanabilir. Detaylı bilgi için "Üyelik Paketleri" sayfamızı ziyaret edebilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Bizi Sosyal Medyada Takip Edin</h2>
+                <p>En güncel araç ilanları, kampanyalar ve otomotiv haberleri için sosyal medya hesaplarımızı takip edin.</p>
+                <div class="social-links-large">
+                    <a href="#" class="social-icon-large"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon-large"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon-large"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon-large"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">ERK Garage</div>
+                    <p>Türkiye'nin en büyük ve güvenilir araba ilan platformu. Hayalinizdeki arabayı bulmak veya arabanızı satmak için doğru adres.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Linkler</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="ilanlar.html">İlanlar</a></li>
+                        <li><a href="#">İlan Ver</a></li>
+                        <li><a href="hesabim.html">Hesabım</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kategoriler</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">SUV</a></li>
+                        <li><a href="#">Sedan</a></li>
+                        <li><a href="#">Hatchback</a></li>
+                        <li><a href="#">Elektrikli</a></li>
+                        <li><a href="#">Lüks Araçlar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Bağdat Caddesi No:123 Kadıköy, İstanbul</li>
+                        <li><i class="fas fa-phone"></i> +90 (212) 456 78 90</li>
+                        <li><i class="fas fa-envelope"></i> info@erkgarage.com</li>
+                        <li><i class="fas fa-clock"></i> Pazartesi - Cumartesi: 09:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ERK Garage. Tüm hakları saklıdır.</p>
+                <ul class="footer-legal">
+                    <li><a href="#">Kullanım Şartları</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                    <li><a href="#">Çerezler</a></li>
+                    <li><a href="#">KVKK</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ toggle fonksiyonu
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-question');
+            
+            faqItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const parent = this.parentElement;
+                    const icon = this.querySelector('.faq-toggle i');
+                    
+                    // Tüm diğer açık olan FAQ'ları kapat
+                    document.querySelectorAll('.faq-item').forEach(faq => {
+                        if (faq !== parent && faq.classList.contains('active')) {
+                            faq.classList.remove('active');
+                            faq.querySelector('.faq-toggle i').classList.remove('fa-minus');
+                            faq.querySelector('.faq-toggle i').classList.add('fa-plus');
+                        }
+                    });
+                    
+                    // Tıklanan FAQ'yu aç/kapat
+                    parent.classList.toggle('active');
+                    
+                    if (parent.classList.contains('active')) {
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    } else {
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
